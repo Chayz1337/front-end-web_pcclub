@@ -1,0 +1,16 @@
+.root{
+    display: flex;
+    flex-direction: column;
+    
+    .body {
+        display: flex;
+        
+        .sidebar {
+            width: 300px;
+        }
+
+        .page {
+            flex: 1;
+        }   
+    }
+}
