@@ -1,0 +1,14 @@
+.root{
+    display: flex;
+    flex-direction: column;
+    padding-top: 50px;
+    max-width: 1450px;
+
+    .form{
+      display: flex;
+      flex-direction: column ;
+      gap: 20px;
+      max-width: 400px;
+      font-family: 'Courier New', Courier, monospace;
+    }
+}
