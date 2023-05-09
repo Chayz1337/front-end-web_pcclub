@@ -1,5 +1,5 @@
 export const VisitsPage =()=>{
     return <div>
-        huy
+        VisitsPage
     </div>
 }

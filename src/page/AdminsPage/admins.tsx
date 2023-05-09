@@ -1,10 +1,11 @@
 import { useQuery } from 'react-query'
-import { adminsApi } from '../../api/api'
+import { adminsApi } from '../../api/adminsApi'
 import { IAdmins, IAdminsForm } from './types'
 import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, TextField, Button } from '@mui/material'
 import { useForm } from 'react-hook-form'
 import s from './s.module.scss'
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+import { AdminsEdit } from '../../components/editbutton/editAdmins'
 
 
 export const AdminsPage = () => {
@@ -21,18 +22,22 @@ export const AdminsPage = () => {
     return (
         <div className={s.root}>
             <form onSubmit={handleSubmit(onSubmit)}className={s.form}>
+            <div className = {s.adm}>
+            <p>Введите данные нового администратора</p>
+            </div>
             <TextField id="outlined-basic"{...register('full_name')} label="ФИО Администратора" variant="outlined" />
             <TextField id="outlined-basic"{...register('email')} label="Адрес эл.почты" variant="outlined" />
             <TextField id="outlined-basic"{...register('telephone')} label="Номер телефона" variant="outlined" />
                 <Button type = 'submit' variant="contained">Добавить</Button>
             </form>
+          <div className={s.table}>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell align="right">ID</TableCell>
-                <TableCell align="right">ФИО</TableCell>
-                <TableCell align="right">Почтовый адресс</TableCell>
+                <TableCell align="right" background-color = "black">ID</TableCell>
+                <TableCell align="right">ФИО</TableCell> 
+                <TableCell align="right">Почтовый адрес</TableCell>
                 <TableCell align="right">Номер телефона</TableCell>
               </TableRow>
             </TableHead>
@@ -46,6 +51,7 @@ export const AdminsPage = () => {
                   <TableCell align="right">{admins.full_name}</TableCell>
                   <TableCell align="right">{admins.email}</TableCell>
                   <TableCell align="right">{admins.telephone}</TableCell>
+                  <TableCell align="right"><AdminsEdit id = {admins.id_admins}/></TableCell>
                   <TableCell align="right" onClick ={()=>onDelete(admins.id_admins)}> <DeleteForeverIcon/></TableCell>
                 </TableRow>
               ))}
@@ -53,6 +59,6 @@ export const AdminsPage = () => {
           </Table>
         </TableContainer>
         </div>
+        </div>
       );
-   // return  <div> {data && data.map(admins => <div key = {admins.id_admins}> full_name: {admins.full_name}</div>)} </div>
 }

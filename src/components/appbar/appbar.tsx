@@ -4,12 +4,24 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import logobb from '../../imgs/logo.png'
 
 export default function ButtonAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
+        <Box
+        component="img"
+        sx={{
+          height: 80,
+          width: 80,
+          maxHeight: { xs: 80, md: 80 },
+          maxWidth: { xs: 80, md: 80 },
+        }}
+        alt="The house from the offer."
+        src={logobb}
+      />        
           <IconButton
             size="large"
             edge="start"

@@ -6,3 +6,4 @@ export interface IAdmins {
   }
 
   export interface IAdminsForm extends Omit<IAdmins, 'id_admins'>{}
+  export interface IAdminsEdit extends Omit<IAdmins, 'id_admins'>{}
