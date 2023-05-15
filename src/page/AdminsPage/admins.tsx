@@ -10,7 +10,7 @@ import { AdminsEdit } from '../../components/editbutton/editAdmins'
 
 export const AdminsPage = () => {
     const { data, refetch }= useQuery({ queryKey: ['admins'], queryFn: () => adminsApi.getAll<IAdmins[]>() })
-    const { register, handleSubmit } = useForm<IAdminsForm> ()
+    const { register, formState:{errors}, handleSubmit } = useForm<IAdminsForm> ()
     const onSubmit = async (data: IAdminsForm) => {
         await adminsApi.create(data)
         refetch()
@@ -25,20 +25,31 @@ export const AdminsPage = () => {
             <div className = {s.adm}>
             <p>Введите данные нового администратора</p>
             </div>
-            <TextField id="outlined-basic"{...register('full_name')} label="ФИО Администратора" variant="outlined" />
-            <TextField id="outlined-basic"{...register('email')} label="Адрес эл.почты" variant="outlined" />
-            <TextField id="outlined-basic"{...register('telephone')} label="Номер телефона" variant="outlined" />
+            <TextField id="outlined-basic"{...register('full_name', {required: true})} label="ФИО Администратора" variant="outlined" />
+            <div className={s.error}>
+            <div style = {{height:20}}> {errors?.full_name&& <p> Обязательное поле для заполнения!</p>} </div>
+            </div>
+            <TextField id="outlined-basic"{...register('email', {required: true})} label="Адрес эл.почты" variant="outlined" />
+            <div className={s.aboba1}>
+            <div style = {{height:20}}> {errors?.email && <p> Обязательное поле для заполнения!</p>} </div>
+            </div>
+            <TextField id="outlined-basic"{...register('telephone', {required: true})} label="Номер телефона" variant="outlined" />
+            <div className={s.aboba1}>
+            <div style = {{height:20}}> {errors?.telephone&& <p> Обязательное поле для заполнения!</p>} </div>
+            </div>
                 <Button type = 'submit' variant="contained">Добавить</Button>
             </form>
           <div className={s.table}>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
+          <Table sx={{ minWidth: 650}} aria-label="simple table">
+            <TableHead className={s.color}>
               <TableRow>
-                <TableCell align="right" background-color = "black">ID</TableCell>
+                <TableCell align="right">ID</TableCell>
                 <TableCell align="right">ФИО</TableCell> 
                 <TableCell align="right">Почтовый адрес</TableCell>
                 <TableCell align="right">Номер телефона</TableCell>
+                <TableCell align="right"></TableCell>
+                <TableCell align="right"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

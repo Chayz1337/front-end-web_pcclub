@@ -17,7 +17,7 @@ export const VisitorsEdit=(props: any) => {
     const [state, setState] = React.useState({
     right: false,
   });
-  const {register, handleSubmit} = useForm<IVisitorsForm>()
+  const {register, handleSubmit, formState:{errors}} = useForm<IVisitorsForm>()
     
     const onEdit = async (data: IVisitorsEdit) => {
         let id = props.id
@@ -51,11 +51,20 @@ export const VisitorsEdit=(props: any) => {
         <div className = {s.adm}>
             <p>Отредактируйте данные посетителя</p>
             </div>
-        <form onSubmit={handleSubmit(onEdit) } className={s.form}>
-        <TextField id="outlined-basic"{...register('full_name')} label="ФИО Посетителя" variant="outlined" />
-        <TextField id="outlined-basic"{...register('birthday')} type = {'date'} label="Дата рождения" focused variant="outlined" ></TextField>
-            <TextField id="outlined-basic"{...register('constancy')} label="Постоянство" variant="outlined" />
-            <Button type ='submit' onClick={toggleDrawer(anchor, false)} color='success' variant="contained">Отредактировать</Button>
+            <form onSubmit={handleSubmit(onEdit) } className={s.form}>
+        <TextField id="outlined-basic"{...register('full_name', {required: true})} label="ФИО Посетелеля" variant="outlined" />
+            <div className={s.error}>
+            <div style = {{height:20}}> {errors?.full_name&& <p> Обязательное поле для заполнения!</p>} </div>
+            </div>
+            <TextField id="outlined-basic"{...register('birthday', {required: true})} label="Дата рождения" variant="outlined" />
+            <div className={s.aboba1}>
+            <div style = {{height:20}}> {errors?.birthday && <p> Обязательное поле для заполнения!</p>} </div>
+            </div>
+            <TextField id="outlined-basic"{...register('constancy', {required: true})} label="Постоянство" variant="outlined" />
+            <div className={s.aboba1}>
+            <div style = {{height:20}}> {errors?.constancy&& <p> Обязательное поле для заполнения!</p>} </div>
+            </div>
+            <Button type ='submit' onClick={toggleDrawer(anchor, true)} color='success' variant="contained">Отредактировать</Button>
             </form>
         </div>
       </List>

@@ -26,18 +26,20 @@ export const ComputersPage = () => {
             </div>
             <TextField id="outlined-basic"{...register('specifications')} label="Характеристики" variant="outlined" />
             <TextField id="outlined-basic"{...register('date_of_last_service')} type = {'date'} label="Дата последнего обслуживания" focused variant="outlined" />
-            <TextField id="outlined-basic"{...register('halls_id_halls')} label="Компьютер (ID)" variant="outlined" />
+            <TextField id="outlined-basic"{...register('halls_id_halls')} label="Зал (ID)" variant="outlined" />
                 <Button type = 'submit' variant="contained">Добавить</Button>
             </form>
             <div className={s.table}>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
+          <TableHead className={s.color}>
               <TableRow>
               <TableCell align="right">ID</TableCell>
                 <TableCell align="right">Характеристики</TableCell>
                 <TableCell align="right">Дата обслуживания</TableCell>
                 <TableCell align="right">Зал (ID)</TableCell>
+                <TableCell align="right"></TableCell>
+                <TableCell align="right"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

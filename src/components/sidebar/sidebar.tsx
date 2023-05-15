@@ -1,16 +1,17 @@
 import ListItem from "@mui/material/ListItem";
 import { Link } from "../../../node_modules/react-router-dom/dist/index"
 import { Box, List, ListItemButton, ListItemText } from "@mui/material";
+import s from './s.module.scss'
 
 export const SideBar=()=> {
     return (
-      <Box sx={{ width: '100%', maxWidth: 340, bgcolor: 'background.paper' }}>
-        <nav aria-label="main mailbox folders">
+      <Box sx={{ width: '100%', maxWidth: 200, bgcolor: 'rgba(0, 136, 255, 0)'}}>
+        <nav aria-label="main mailbox folders" className={s.root}>
           <List>
               <Link to={'admins'}> 
                   <ListItem disablePadding>
                       <ListItemButton>
-                          <ListItemText primary="Администраторы" />
+                          <ListItemText primary ="Администраторы" />
                       </ListItemButton>
                   </ListItem>
               </Link>

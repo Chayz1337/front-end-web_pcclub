@@ -1,3 +1,4 @@
+
 .root{
   display: flex;
   flex-direction: column;
@@ -7,10 +8,24 @@
       display:flex;
       flex-direction: column;
       padding-top: 20px;
-      gap: 20px;
+      gap: 2px;
       max-width: 400px;
+      max-height: 1500px;
+
   }
   .font{
       margin: 0px 30px 0px 30px;
+
+  }
+
+  .error{
+    display: block;
+    color: red;
+    font-size: 12px;
+  }
+  .aboba1{
+    display: block;
+    color: red;
+    font-size: 12px;
   }
 }

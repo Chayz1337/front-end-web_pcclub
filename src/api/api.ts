@@ -30,12 +30,6 @@ class Api{
 
 export const api = new Api()
 
-export const computersApi = {
-    path: 'computers/',
-    async getAll() {
-        return await api.get(this.path)
-    },
-}
 export const hallsApi = {
     path: 'halls/',
     async getAll() {

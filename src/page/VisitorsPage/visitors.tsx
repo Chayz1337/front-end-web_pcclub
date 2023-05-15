@@ -33,12 +33,14 @@ export const VisitorsPage = () => {
             <div className={s.table}>
         <TableContainer component={Paper}>
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
+          <TableHead className={s.color}>
               <TableRow>
               <TableCell align="right">ID</TableCell>
                 <TableCell align="right">ФИО</TableCell>
                 <TableCell align="right">Дата рождения</TableCell>
                 <TableCell align="right">Постоянство</TableCell>
+                <TableCell align="right"></TableCell>
+                <TableCell align="right"></TableCell>
               </TableRow>
             </TableHead>
             <TableBody>

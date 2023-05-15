@@ -1,5 +1,10 @@
 body {
   margin: 0;
   padding: 0;
+  height: 974px;
   font-family: 'Courier New', Courier, monospace;
+  background-image: url('../src/imgs/4.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
 }
